@@ -106,28 +106,7 @@ Las contribuciones son bienvenidas. Por favor, sigue estos pasos:
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
 
-## ✨ Funcionalidades Planeadas
-
-- [ ] Soporte para análisis de múltiples proyectos
-- [ ] Exportación de reportes en diferentes formatos
-- [ ] Integración con sistemas de CI/CD
-- [ ] Análisis de dependencias entre clases
-- [ ] Sugerencias automáticas de optimización
-
-## 📞 Soporte
-
-Si tienes preguntas o necesitas ayuda:
-
-- Abre un issue en GitHub
-- Envía un email a [tu-email@ejemplo.com]
-- Consulta la documentación en [link-a-docs]
-
 ## 👥 Autores
 
 - **Stella Esparza Torregrosa**
 
-## 🙏 Agradecimientos
-
-- A todos los contribuidores que han participado en este proyecto
-- A la comunidad de desarrolladores por su feedback y sugerencias
-- A las librerías y herramientas que hacen este proyecto posible
