@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Variables
 $primary-color: #9333ea; // Color morado
 $primary-hover: #7e22ce;
@@ -34,6 +36,10 @@ $letter-color: #000000;
 
 // Estilos base
 .scss-analyzer {
+  background-image: url('/src/assets/background.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100vw;
   min-height: 100vh;
   background-color: $background-color;
@@ -160,12 +166,12 @@ $letter-color: #000000;
 
     &.success {
       background-color: rgba($success-color, 0.1);
-      color: darken($success-color, 10%);
+      color: color.adjust($success-color, $lightness: -10%);
     }
 
     &.error {
       background-color: rgba($error-color, 0.1);
-      color: darken($error-color, 10%);
+      color: color.adjust($error-color, $lightness: -10%);
     }
 
     .files-list {
