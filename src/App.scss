@@ -1,0 +1,389 @@
+// Variables
+$primary-color: #9333ea; // Color morado
+$primary-hover: #7e22ce;
+$background-color: #f8fafc;
+$card-background: #ffffff;
+$text-primary: #1e293b;
+$text-secondary: #64748b;
+$border-color: #e2e8f0;
+$success-color: #22c55e;
+$error-color: #ef4444;
+$border-radius: 8px;
+$transition: all 0.3s ease;
+$letter-color: #000000;
+
+// Mixins
+@mixin card {
+  background-color: $card-background;
+  border-radius: $border-radius;
+  padding: 10px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@mixin button {
+  padding: 8px 16px;
+  border-radius: $border-radius;
+  border: none;
+  cursor: pointer;
+  transition: $transition;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+// Estilos base
+.scss-analyzer {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $background-color;
+  display: flex;
+  justify-content: center;
+
+  .container {
+    max-width: 1024px;
+    padding: 10px;
+    width: 100%;
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 24px;
+      padding-top: 15px;
+      color: $text-primary;
+    }
+  }
+}
+
+// Componentes
+.card {
+  @include card;
+  margin-bottom: 10px;
+
+  h3 {
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 8px;
+    color: $text-primary;
+  }
+}
+
+.button-primary {
+  @include button;
+  background-color: $primary-color;
+  color: white;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Input groups
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: $background-color;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+}
+
+// Prefix tags
+.prefix-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: $letter-color;
+
+  .prefix-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $background-color;
+    padding: 4px 12px;
+    border-radius: 16px;
+
+    .remove-prefix {
+      color: $primary-color;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 18px;
+
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+  }
+}
+
+// Search section
+.search-form {
+  display: flex;
+  gap: 8px;
+
+  input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: $background-color;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+}
+
+.search-results {
+  margin-top: 16px;
+
+  .result-card {
+    padding: 10px;
+    border-radius: $border-radius;
+
+    &.success {
+      background-color: rgba($success-color, 0.1);
+      color: darken($success-color, 10%);
+    }
+
+    &.error {
+      background-color: rgba($error-color, 0.1);
+      color: darken($error-color, 10%);
+    }
+
+    .files-list {
+      margin-top: 8px;
+      font-size: 14px;
+
+      ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 4px;
+      }
+    }
+  }
+}
+
+// Drop zone
+.drop-zone {
+  @include card;
+  border: 2px dashed $border-color;
+  text-align: center;
+  padding: 48px 10px;
+  margin-bottom: 10px;
+
+  .icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    color: $text-secondary;
+  }
+
+  .primary-text {
+    color: $text-primary;
+    margin-bottom: 8px;
+  }
+
+  .secondary-text {
+    color: $text-secondary;
+    font-size: 14px;
+  }
+}
+
+// Loading state
+.loading {
+  text-align: center;
+  padding: 16px;
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 2px solid $background-color;
+    border-top-color: $primary-color;
+    border-radius: 50%;
+    margin: 0 auto 8px;
+    animation: spin 1s linear infinite;
+  }
+
+  p {
+    color: $text-primary;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Stats grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  margin-bottom: 10px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .stat-card {
+    @include card;
+
+    h3 {
+      font-weight: 600;
+      margin-bottom: 8px;
+      margin-top: 0px;
+      color: $text-primary;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      margin: 0px;
+      color: $letter-color;
+
+      &.success {
+        color: $success-color;
+      }
+
+      &.highlight {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// Unused classes section
+.unused-classes {
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: $text-primary;
+
+    .excluded-count,
+    .checked-count {
+      font-size: 14px;
+      color: $text-secondary;
+      margin-left: 8px;
+    }
+  }
+
+  .classes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .class-item {
+      .class-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px;
+        border-radius: $border-radius;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $background-color;
+
+          .copy-button {
+            opacity: 1;
+          }
+        }
+
+        input[type="checkbox"] {
+          width: 16px;
+          height: 16px;
+          accent-color: $primary-color;
+        }
+
+        .class-name {
+          flex-grow: 1;
+          color: $text-primary;
+          font-size: 14px;
+        }
+
+        .copy-button {
+          @include button;
+          opacity: 0;
+          padding: 4px 8px;
+          color: $primary-color;
+          background-color: transparent;
+
+          &:hover {
+            background-color: rgba($primary-color, 0.1);
+          }
+
+          .icon {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 32px 0;
+    color: $text-secondary;
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 8px;
+
+      &.success {
+        color: $success-color;
+      }
+    }
+  }
+}
+
+// Alert styles
+.alert {
+  position: relative;
+  width: 100%;
+  border-radius: $border-radius;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  &.error {
+    background-color: rgba($error-color, 0.1);
+    border: 1px solid rgba($error-color, 0.2);
+
+    .icon {
+      color: $error-color;
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.alert-description {
+  font-size: 14px;
+  line-height: 1.5;
+  padding-left: 28px;
+  color: $text-primary;
+}
