@@ -1,7 +1,6 @@
 @use "sass:color";
 
-// Variables
-$primary-color: #9333ea; // Color morado
+$primary-color: #9333ea;
 $primary-hover: #7e22ce;
 $background-color: #f8fafc;
 $card-background: #ffffff;
@@ -19,7 +18,7 @@ $letter-color: #000000;
   background-color: $card-background;
   border-radius: $border-radius;
   padding: 10px 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: -3px 3px 0px $primary-color;
 }
 
 @mixin button {
@@ -52,11 +51,12 @@ $letter-color: #000000;
     width: 100%;
 
     h1 {
-      font-size: 24px;
+      font-size: 40px;
       font-weight: bold;
       margin-bottom: 24px;
-      padding-top: 15px;
-      color: $text-primary;
+      padding-top: 0px;
+      font-family: 'Telegraf-UltraBold', sans-serif;
+      color: #fff;
     }
   }
 }
@@ -71,6 +71,7 @@ $letter-color: #000000;
     margin-top: 0px;
     margin-bottom: 8px;
     color: $text-primary;
+    font-family: 'Telegraf-UltraBold', sans-serif;
   }
 }
 
@@ -105,35 +106,6 @@ $letter-color: #000000;
     &:focus {
       outline: none;
       border-color: $primary-color;
-    }
-  }
-}
-
-// Prefix tags
-.prefix-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  color: $letter-color;
-
-  .prefix-tag {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background-color: $background-color;
-    padding: 4px 12px;
-    border-radius: 16px;
-
-    .remove-prefix {
-      color: $primary-color;
-      border: none;
-      background: none;
-      cursor: pointer;
-      font-size: 18px;
-
-      &:hover {
-        color: $primary-hover;
-      }
     }
   }
 }
@@ -392,4 +364,41 @@ $letter-color: #000000;
   line-height: 1.5;
   padding-left: 28px;
   color: $text-primary;
+}
+
+.inside-card {
+  padding: 10px;
+  margin: 8px 0px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+
+.prefix-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 16px;
+
+  span {
+    color: $text-primary !important;
+  }
+
+  .remove-prefix {
+    color: $primary-color;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}
+
+span {
+  color: $text-primary !important;
 }

@@ -20,7 +20,7 @@ const SCSSAnalyzer = () => {
     try {
       await navigator.clipboard.writeText(className);
       setCopiedClass(className);
-      setTimeout(() => setCopiedClass(null), 2000); // Reset after 2 seconds
+      setTimeout(() => setCopiedClass(null), 2000);
     } catch (err) {
       console.error('Error al copiar al portapapeles:', err);
     }
@@ -215,6 +215,7 @@ const SCSSAnalyzer = () => {
         
         {/* Sección de prefijos excluidos */}
         <div className="card excluded-prefixes">
+          <div className='inside-card'>
           <h3>Prefijos Excluidos</h3>
           <div className="input-group">
             <input
@@ -231,6 +232,7 @@ const SCSSAnalyzer = () => {
             </button>
           </div>
           <div className="prefix-tags">
+          </div>
             {excludedPrefixes.map(prefix => (
               <div
                 key={prefix}
@@ -250,6 +252,7 @@ const SCSSAnalyzer = () => {
 
         {/* Sección de búsqueda de clase */}
         <div className="card search-section">
+           <div className='inside-card'>
           <h3>Buscar Clase Específica</h3>
           <form onSubmit={handleSearch} className="search-form">
             <input
@@ -285,6 +288,7 @@ const SCSSAnalyzer = () => {
               </div>
             </div>
           )}
+          </div>
         </div>
 
         {/* Zona de drop */}

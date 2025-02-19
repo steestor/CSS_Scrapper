@@ -1,5 +1,6 @@
 import SCSSAnalyzer from './components/SCSSAnalyzer'
-import './App.scss'
+import './App.scss';
+import './assets/fonts.scss';
 
 function App() {
   return (
